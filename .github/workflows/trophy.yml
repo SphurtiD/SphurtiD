@@ -1,8 +1,8 @@
 name: Generate trophy card
 
 on:
-  schedule: # execute every 12 hours
-    - cron: "* */12 * * *"
+  schedule: # execute every 12 hours (at minute 0)
+    - cron: "0 */12 * * *"
 
   workflow_dispatch:
 
@@ -22,7 +22,7 @@ jobs:
         uses: Erik-Donath/github-profile-trophy@feature/generate-svg
         with:
           username: ${{ github.repository_owner }}
-          file: dist/trophy.svg
+          output_path: dist/trophy.svg # Changed 'file' to 'output_path'
           token: ${{ secrets.GITHUB_TOKEN }}
           theme: dracula
           max-rows: 1
