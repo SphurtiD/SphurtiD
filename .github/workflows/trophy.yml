@@ -19,10 +19,10 @@ jobs:
 
     steps:
       - name: generate trophy.svg
-        uses: Erik-Donath/github-profile-trophy@feature/generate-svg
+        uses: Erik-Donath/github-profile-trophy@master # Switched from feature/generate-svg to master
         with:
           username: ${{ github.repository_owner }}
-          output_path: dist/trophy.svg # Changed 'file' to 'output_path'
+          file: dist/trophy.svg # Reverted to 'file' since 'output_path' is invalid here
           token: ${{ secrets.GITHUB_TOKEN }}
           theme: dracula
           max-rows: 1
